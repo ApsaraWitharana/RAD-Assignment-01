@@ -1,0 +1,6 @@
+.dashboard {
+
+}
+.table-css{
+    @apply border border-gray-200;
+}
