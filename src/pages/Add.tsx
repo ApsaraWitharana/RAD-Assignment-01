@@ -3,7 +3,6 @@ import { Customer } from "../model/Customer";
 import {CustomerReducer, initialState} from "../reducer/CrudReducer.ts";
 
 export function Add() {
-
     const [customers, dispatch] = useReducer(CustomerReducer, initialState);
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
@@ -13,7 +12,6 @@ export function Add() {
     function addCustomer() {
         const newCustomer = new Customer(name, address, email, phone);
         dispatch({ type: 'ADD_CUSTOMER', payload: newCustomer });
-
 
     }
     return (
@@ -42,8 +40,6 @@ export function Add() {
                         </div>
                     </div>
                     <button onClick={addCustomer}  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add Customer</button>
-
-                    <h2>Customer List</h2>
                     <table className="w-full border-collapse mt-6">
                         <thead>
                         <tr>

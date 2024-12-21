@@ -6,6 +6,7 @@ import { Add } from "./pages/Add.tsx";
 import { Error } from "./pages/Error";
 import { RootLayout } from "./component/RootLayout";
 import { CustomerProvider } from "./component/CustomerProvider";
+import {Update} from "./pages/Update.tsx";
 
 function App() {
     const routes = createBrowserRouter([
@@ -13,8 +14,10 @@ function App() {
             path: "/",
             element: <RootLayout />,
             children: [
-                { path: "/", element: <Dashboard /> },
+                { path: "/", element: <Dashboard/> },
                 { path: "/add", element: <Add/> },
+                { path: "/update", element: <Update/> },
+
             ],
             errorElement: <Error />,
         },

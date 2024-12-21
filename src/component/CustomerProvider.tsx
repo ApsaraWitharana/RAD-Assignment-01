@@ -18,6 +18,12 @@ export function CustomerReducer(
     switch (action.type) {
         case "ADD_CUSTOMER":
             return [...state, action.payload];
+        case "UPDATE_CUSTOMER":
+            return state.map((customer) =>
+                customer.email === action.payload.email
+                    ? { ...customer, ...action.payload }
+                    : customer
+            );
         default:
             return state;
     }
