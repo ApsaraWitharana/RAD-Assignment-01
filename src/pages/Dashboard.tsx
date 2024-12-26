@@ -1,9 +1,10 @@
-import { useReducer} from "react";
+import {useContext, useReducer} from "react";
 import "../style/Dashboard.css"
-import {CustomerReducer, initialState} from "../reducer/CrudReducer.ts";
+import {Customer} from "../model/Customer.ts";
+import {CustomerContext} from "../component/CustomerProvider.tsx";
 export function Dashboard() {
 
-    const [customers] = useReducer(CustomerReducer, initialState);
+    const [customers] =useContext(CustomerContext);
     return (
         <div className=" md-8">
             <h1 className="text-3xl font-medium text-green-500 mb-6 text-my">Dashboard</h1>
@@ -21,7 +22,7 @@ export function Dashboard() {
                         </tr>
                         </thead>
                         <tbody>
-                        {customers.map((customer) => (
+                        {customers.map((customer:Customer) => (
                             <tr key={customer.email}>
                                 <td className="table-css">{customer.name}</td>
                                 <td className="table-css">{customer.address}</td>
