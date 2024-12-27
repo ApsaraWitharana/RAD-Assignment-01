@@ -1,10 +1,10 @@
-import { useReducer } from "react";
-import { CustomerReducer, initialState as customerInitialState } from "../reducer/CustomerReducer.ts";
-import { ItemReducer, initialItemState } from "../reducer/ItemReducer.ts";
+import {useContext} from "react";
+import {CustomerContext} from "../component/CustomerProvider.tsx";
+import {ItemContext} from "../component/ItemProvider.tsx";
 
 export function Delete() {
-    const [customers, customerDispatch] = useReducer(CustomerReducer, customerInitialState);
-    const [items, itemDispatch] = useReducer(ItemReducer, initialItemState);
+    const [customers, customerDispatch] = useContext(CustomerContext);
+    const [items, itemDispatch] = useContext(ItemContext)
 
     function handleDeleteCustomer(email) {
         customerDispatch({ type: 'DELETE_CUSTOMER', payload: {email: email } });
@@ -31,8 +31,8 @@ export function Delete() {
                         </tr>
                         </thead>
                         <tbody>
-                        {customers.map((customer, index) => (
-                            <tr key={index}>
+                        {customers.map((customer) => (
+                            <tr key={customer.email}>
                                 <td className="border p-2">{customer.name}</td>
                                 <td className="border p-2">{customer.address}</td>
                                 <td className="border p-2">{customer.email}</td>
@@ -65,8 +65,8 @@ export function Delete() {
                         </tr>
                         </thead>
                         <tbody>
-                        {items.map((item, index) => (
-                            <tr key={index}>
+                        {items.map((item) => (
+                            <tr key={item.code.toString()} className="border p-2">
                                 <td className="border p-2">{item.code}</td>
                                 <td className="border p-2">{item.name}</td>
                                 <td className="border p-2">{item.quantity}</td>
