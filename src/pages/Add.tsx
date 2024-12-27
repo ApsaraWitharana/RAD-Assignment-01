@@ -1,7 +1,7 @@
-import {useContext, useReducer, useState} from "react";
+import {useContext,useState} from "react";
 import { Customer } from "../model/Customer";
-import { ItemReducer, initialItemState } from "../reducer/ItemReducer.ts";
 import {CustomerContext} from "../component/CustomerProvider.tsx";
+import {ItemContext} from "../component/ItemProvider.tsx";
 
 export function Add() {
     const [customers, customerDispatch] = useContext(CustomerContext)
@@ -10,7 +10,7 @@ export function Add() {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
 
-    const [items, itemDispatch] = useReducer(ItemReducer, initialItemState);
+    const [items, itemDispatch] = useContext(ItemContext)
     const [itemCode, setItemCode] = useState('');
     const [itemName, setItemName] = useState('');
     const [itemQuantity, setItemQuantity] = useState('');
