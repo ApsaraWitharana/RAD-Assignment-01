@@ -7,14 +7,13 @@ export function Dashboard() {
 
     const [customers] =useContext(CustomerContext);
     const [item] =useContext(ItemContext);
-
     return (
         <div className=" md-8">
             <h1 className="text-3xl font-medium text-green-500 mb-6 text-my">Dashboard</h1>
             <div  className="p-6 grid grid-cols-2" >
                 {/* left  */}
                 <div>
-                    <h1 className="text-3xl font-medium text-green-500 mb-6">Customer</h1>
+                    <h1 className="text-3xl font-medium text-green-500 mb-6">Customer Details</h1>
                     <table className=" table-auto border cellPadding-8 marginTop-20px w-full">
                         <thead>
                         <tr className="border">
@@ -38,7 +37,7 @@ export function Dashboard() {
                 </div>
                 <div>
                     <div className="item-card">
-                        <h1 className="text-3xl font-medium text-green-500 mb-6">Item</h1>
+                        <h1 className="text-3xl font-medium text-green-500 mb-6">Item Details</h1>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
                             {item.map((item) => (
                                 <div className="bg-white shadow-md rounded-lg p-4 border border-gray-200 hover:bg-green-200 transition duration-500">
